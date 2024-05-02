@@ -121,7 +121,7 @@ async function playRaceEngine(character1, character2){
     let item2 = confrontationItems[Math.floor(Math.random() * confrontationItems.length)]
 
     let penalty1 = item1 === "casco" ? -1 : -2;
-    let penalty2 = item2 === "bomba" ? -1 : -2;
+    let penalty2 = item2 === "casco" ? -1 : -2;
 
     // if combinado
     if(powerResult1 > powerResult2 && character2.PONTOS > 0){
