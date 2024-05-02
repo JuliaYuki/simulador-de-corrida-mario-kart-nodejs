@@ -126,9 +126,9 @@ async function playRaceEngine(character1, character2){
     // if combinado
     if(powerResult1 > powerResult2 && character2.PONTOS > 0){
       character2.PONTOS += penalty2;
-      console.log(`${character1.NOME} venceu o confronto usando ${item1}! ${character2.NOME} perdeu ${-penalty2} ponto(s)`)
+      console.log(`${character1.NOME} venceu o confronto usando ${item1}🐢! ${character2.NOME} perdeu ${-penalty2} ponto(s)`)
       if(Math.random() < 0.5) {
-        console.log(`${character1.NOME} ganha turbo! +1 ponto`)
+        console.log(`${character1.NOME} ganha turbo 🚗💨! +1 ponto`)
         character1.PONTOS--;
       }
       
@@ -136,9 +136,9 @@ async function playRaceEngine(character1, character2){
 
     if(powerResult2 > powerResult1 && character1.PONTOS > 0){
       character1.PONTOS += penalty1;
-      console.log(`${character2.NOME} venceu o confronto usando ${item2}! ${character1.NOME} perde ${-penalty1} ponto(s)`);
+      console.log(`${character2.NOME} venceu o confronto usando ${item2}💣! ${character1.NOME} perde ${-penalty1} ponto(s)`);
       if (Math.random() < 0.5) {
-        console.log(`${character2.NOME} ganha turbo! +1 ponto`);
+        console.log(`${character2.NOME} ganha turbo 🚗💨! +1 ponto`);
         character2.PONTOS++;
       }
     }
