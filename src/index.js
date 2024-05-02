@@ -142,9 +142,6 @@ async function playRaceEngine(character1, character2){
         character2.PONTOS++;
       }
     }
-
-    // if ternario: exemplo
-    //character1.PONTOS -= powerResult2 > powerResult1 && character1.PONTOS > 0 ? 1 : 0
     
     console.log(powerResult2 === powerResult1 ? "Confronto empatado! Nenhum ponto foi perdido." : "")
   }
