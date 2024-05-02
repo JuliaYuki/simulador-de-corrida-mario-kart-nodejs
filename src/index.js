@@ -122,23 +122,33 @@ async function playRaceEngine(character1, character2){
 
     let penalty1 = item1 === "casco" ? -1 : -2;
     let penalty2 = item2 === "casco" ? -1 : -2;
+    let emoji1 = item1 === "casco" ? "🐢" : "💣";
+    let emoji2 = item2 === "casco" ? "🐢" : "💣";
 
-    // if combinado
-    if(powerResult1 > powerResult2 && character2.PONTOS > 0){
-      character2.PONTOS += penalty2;
-      console.log(`${character1.NOME} venceu o confronto usando ${item1}🐢! ${character2.NOME} perdeu ${-penalty2} ponto(s)`)
-      if(Math.random() < 0.5) {
-        console.log(`${character1.NOME} ganha turbo 🚗💨! +1 ponto`)
-        character1.PONTOS--;
+    if(powerResult1 > powerResult2) {
+      // Verifica se há pontos suficientes antes de aplicar a penalidade
+      if(character2.PONTOS + penalty2 < 0) {
+        character2.PONTOS = 0; // Garante que não vá abaixo de zero
+      } else {
+        character2.PONTOS += penalty2;
       }
-      
-    }
-
-    if(powerResult2 > powerResult1 && character1.PONTOS > 0){
-      character1.PONTOS += penalty1;
-      console.log(`${character2.NOME} venceu o confronto usando ${item2}💣! ${character1.NOME} perde ${-penalty1} ponto(s)`);
+      console.log(`${character1.NOME} venceu o confronto usando ${item1} ${emoji1}! ${character2.NOME} perde ${-penalty2} ponto(s)`);
       if (Math.random() < 0.5) {
-        console.log(`${character2.NOME} ganha turbo 🚗💨! +1 ponto`);
+        console.log(`${character1.NOME} ganha turbo! +1 ponto`);
+        character1.PONTOS++;
+      }
+    }
+    
+    if(powerResult2 > powerResult1) {
+      // Verifica se há pontos suficientes antes de aplicar a penalidade
+      if(character1.PONTOS + penalty1 < 0) {
+        character1.PONTOS = 0; // Garante que não vá abaixo de zero
+      } else {
+        character1.PONTOS += penalty1;
+      }
+      console.log(`${character2.NOME} venceu o confronto usando ${item2} ${emoji2}! ${character1.NOME} perde ${-penalty1} ponto(s)`);
+      if (Math.random() < 0.5) {
+        console.log(`${character2.NOME} ganha turbo! +1 ponto`);
         character2.PONTOS++;
       }
     }
